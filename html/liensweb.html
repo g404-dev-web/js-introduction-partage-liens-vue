@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/liensweb.css">
+    <title>Activité 1</title>
+</head>
+
+<body>
+    <h1>Partage de liens</h1>
+
+    <div id="contenu">
+        <p id="confirmation">✓ Le lien "<span id="adresseDuLien"></span>" a bien été créé</p>
+
+        <button id="ajoutForm">Ajouter un lien</button>
+
+        <form class="formulaire" v-on:submit.prevent="ajouterLien">
+            <input type="text" name="auteur" placeholder="Entrez votre nom" v-model="nouveauLien.auteur">
+            <input type="text" name="titre" required size="30" placeholder="Entrez le titre du lien" v-model="nouveauLien.titre">
+            <input type="text" name="url" required size="30" placeholder="Entrez l'URL du lien" v-model="nouveauLien.url">
+            <input type="submit" value="Ajouter">
+        </form>
+
+        <div class="lien" v-for="lien in liens">
+            <a :href="lien.url" style='color:#428bca;'> {{lien.titre}} </a> <span>{{lien.url}} <br>{{lien.auteur}}</span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js "></script>
+    <script src="../js/VueLiens.js "></script>
+</body>
+
+</html>
